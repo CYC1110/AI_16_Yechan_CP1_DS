@@ -36,7 +36,8 @@ class Detection():
                 print('더 이상 처리할 frame이 없습니다.')
                 break
             img = self.model(img)
-            vid_writer.write(img)
+            result_img = img.render()[0]
+            vid_writer.write(result_img)
         
         vid_writer.release()
         vfile.release()
