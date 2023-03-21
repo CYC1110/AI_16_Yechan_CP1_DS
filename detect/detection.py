@@ -6,8 +6,8 @@ import time
 
 
 class Detection():
-    def __init__(self, model_path):
-        self.model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path)
+    def __init__(self, model):
+        self.model = model
         
     def get_detected_img(self, img_path):
         img = cv2.imread(img_path)
