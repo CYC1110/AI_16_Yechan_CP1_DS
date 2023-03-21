@@ -16,9 +16,7 @@ class Detection():
 
         return result
     
-    def get_video(self, video_path, output_path, conf_threshold = 0.5, nms_threshold = 0.4):
-        self.conf_threshold = conf_threshold
-        self.nms_threshold = nms_threshold
+    def get_video(self, video_path, output_path):
 
         vfile = cv2.VideoCapture(video_path)
 
@@ -37,7 +35,7 @@ class Detection():
             if not vret:
                 print('더 이상 처리할 frame이 없습니다.')
                 break
-            img = self.get_detected_img(img)
+            img = self.model(img)
             vid_writer.write(img)
         
         vid_writer.release()
